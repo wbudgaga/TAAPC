@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<configuration> 
+<property>         
+	<name>dfs.permissions</name>         
+	<value>false</value>     
+</property> 
+<property>
+	<name>dfs.namenode.name.dir</name>
+	<value>${hadoop.tmp.dir}/dfs/name</value>
+</property>
+<property>
+	<name>dfs.datanode.data.dir</name>
+	<value>${hadoop.tmp.dir}/dfs/data</value>
+</property>
+<property>
+	<name>dfs.secondary.http.address</name>
+	<value>0.0.0.0:0</value>
+</property>
+<property>
+	<name>dfs.blocksize</name>
+	<value>134217728</value>
+</property>
+<!--	
+<property>
+	<name>dfs.datanode.http.address</name>
+	<value>0.0.0.0:0</value>
+	<description>
+		The datanode http server address and port.
+		If the port is 0 then the server will start on a free port.
+	</description>
+</property>
+
+
+<property>
+	<name>dfs.datanode.ipc.address</name>
+	<value>0.0.0.0:0</value>
+	<description>
+		The datanode ipc server address and port.
+		If the port is 0 then the server will start on a free port.
+	</description>
+</property>
+
+<property>
+  <name>dfs.replication</name>
+  <value>1</value>
+  <description>Default block replication.
+  The actual number of replications can be specified when the file is created.
+  The default is used if replication is not specified in create time.
+  </description>
+</property>
+<property>
+<name>dfs.permissions</name>
+<value>false</value>
+</property>
+-->
+<!--
+  <property>
+        <name>dfs.federation.nameservices</name>
+        <value>ns1</value>
+    </property>
+    <property>
+        <name>dfs.namenode.rpc-address.ns1</name>
+        <value>hdfs://faure:9001</value>
+      </property>
+    <property>
+        <name>dfs.namenode.http-address.ns1</name>
+        <value>faure:50071</value>
+    </property>
+    <property>
+            <name>dfs.namenode.secondaryhttp-address.ns1</name>
+        <value>faure:50091</value>
+    </property>
+-->
+</configuration>

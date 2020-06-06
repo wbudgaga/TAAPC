@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<configuration>
+<property>
+  <name>hadoop.tmp.dir</name>
+  <value>/tmp/hadoop-budgaga</value>
+</property>
+<property>
+	<name>yarn.nodemanager.local-dirs</name>
+	<value>${hadoop.tmp.dir}/nm-local-dir</value>
+	<description>the local directories used by the nodemanager</description>
+</property>
+<property>
+	<name>yarn.nodemanager.log-dirs</name>
+	<value>${hadoop.tmp.dir}/logs</value>
+	<description>the directories used by Nodemanagers as log directories</description>
+</property>
+<property>
+	<name>yarn.nodemanager.remote-app-log-dir</name>
+	<value>${hadoop.tmp.dir}/logs</value>
+	<description>directory on hdfs where the application logs are moved to </description>
+</property>
+<property>
+	<name>yarn.nodemanager.address</name>
+	<value>0.0.0.0:8027</value>
+	<description>the nodemanagers bind to this port</description>
+</property>
+<property>
+	<name>yarn.nodemanager.localizer.address</name>
+	<value>0.0.0.0:43340</value>
+	<description>The node manager localizer RPC server address and port.</description>
+</property>
+
+<property>
+	<name>yarn.nodemanager.aux-services</name>
+	<value>mapreduce.shuffle</value>
+	<description>shuffle service that needs to be set for Map Reduce to run </description>
+</property>
+<property>
+	<name>yarn.resourcemanager.address</name>
+	<value>beet:8058</value>
+	<description>the host is the hostname of the ResourceManager and the port is the port on
+			which the clients can talk to the Resource Manager. </description>
+</property>
+
+<property>
+	<name>yarn.nodemanager.resource.memory-mb</name>
+	<value>10240</value>
+	<description>the amount of memory on the NodeManager in GB</description>
+</property>
+
+<property>
+	<name>yarn.resourcemanager.resource-tracker.address</name>
+	<value>beet:8025</value>
+	<description>host is the hostname of the resource manager and
+	port is the port on which the NodeManagers contact the Resource Manager.
+	</description>
+</property>
+<property>
+	<name>yarn.resourcemanager.scheduler.address</name>
+   <value>beet:8030</value>
+</property>
+
+<!--
+===========================
+
+<property>
+	<name>mapreduce.job.ubertask.enable</name>
+	<value>false</value>
+</property>
+
+<property>
+    <name>yarn.nodemanager.aux-services.mapreduce.shuffle.class</name>
+    <value>org.apache.hadoop.mapred.ShuffleHandler</value>
+</property>
+
+-->
+</configuration>
