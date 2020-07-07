@@ -152,7 +152,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 		
 		job.setInputFormatClass(TextInputFormat.class);
 		job.setOutputFormatClass(TextOutputFormat.class);
-//		job.setNumReduceTasks(40);
+		//job.setNumReduceTasks(40);
 		
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));

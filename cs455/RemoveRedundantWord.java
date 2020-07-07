@@ -71,14 +71,14 @@ public class RemoveRedundantWord  extends Configured implements Tool {
 
 		/*	sentencePartsSkipOnePro[0] = 0.0001;
 			sentencePartsSkipOnePro[sentencePartsSkipOnePro.length - 1] = 0.0001; 
-*/			double min  = 2.0;
+*/			double max  = 2.0;
 			int    minIndex = -1;
 			for (int i=0;i<sentenceParts.length-1;++i){
 			//	output.write(new Text(i+""), new Text(sentencePartsPro[i]+"|"+sentencePartsSkipOnePro[i]));
 				double partPro = Math.min(sentencePartsPro[i] , ((i>0)?sentencePartsPro[i-1]:1));
 //				partPro = sentencePartsSkipOnePro[i] + partPro;
-				if (partPro < min){
-					min = partPro;
+				if (partPro < max){
+					max = partPro;
 					minIndex = i;
 				}
 			}
