@@ -19,3 +19,7 @@ It is a mapReduce job that uses the computed probabilities to find the word with
 
 **Swapping two words in a sentance**
 Both (cs455.RemoveRedundantWord, s455.RemoveRedundantWord) can be used to find the words in the wrong positions and then swap them to their right positions.
+
+
+### Scripts to run the jobs
+Currently, we have 2 scripts: **asg4AddExec.sh** cleans old outputs and performs **cs455.AddMissingWord** to add the missing word. and **asg4RemoveExec.sh** cleans old outputs and performs **cs455.RemoveRedundantWord** job to remove one word from the sentence.
