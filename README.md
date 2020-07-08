@@ -2,7 +2,7 @@
 
 Implemented a collection of Map Reduce jobs to parse text from a collection of books and compute the probability of each word’s occurring antecedent to each of the other words in the sentence. The application uses the extracted knowledge to correct a given sentence by removing, adding, or changing the order of words.
 
-### cs455.BigramCreator 
+** cs455.BigramCreator **
  It is a mapReduce job that create bigrams  from text read from a collection of books.
  
 ### cs455.ProbabilityCalculator
