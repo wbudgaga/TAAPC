@@ -15,7 +15,7 @@ It is a mapReduce job that uses the computed probabilities to find the position 
 It is a mapReduce job that uses the computed probabilities to find the position of the missed word and then finds the word that fits in.
 
 ### cs455.RemoveRedundantWord
-It is a mapReduce job that uses the computed probabilities to find the word with minimum probability  and then remove it from the sentewnce
+It is a mapReduce job that uses the computed probabilities to find the word with minimum probability  and then remove it from the sentewnce.
 
 ### Swapping two words in a sentance
-Both (cs455.RemoveRedundantWord, s455.RemoveRedundantWord) can be used to find the words in the wrong positions and then swap them to their right positions
+Both (cs455.RemoveRedundantWord, s455.RemoveRedundantWord) can be used to find the words in the wrong positions and then swap them to their right positions.
