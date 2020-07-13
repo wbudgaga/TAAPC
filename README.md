@@ -11,9 +11,6 @@ It is a mapReduce job that uses the created bigrams to computes the probability 
 **cs455.AddMissingWord**
 It is a mapReduce job that uses the computed probabilities to find the position of the missed word and then finds the word that fits in.
 
-**cs455.AddMissingWord**
-It is a mapReduce job that uses the computed probabilities to find the position of the missed word and then finds the word that fits in.
-
 **cs455.RemoveRedundantWord**
 It is a mapReduce job that uses the computed probabilities to find the word with minimum probability  and then remove it from the sentewnce.
 
