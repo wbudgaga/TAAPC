@@ -25,7 +25,7 @@ public class AddMissingWord  extends Configured implements Tool {
 		protected void setup(Context context) throws IOException,InterruptedException {
 			super.setup(context);
 			String sentence = context.getConfiguration().get("SENTENCE");
-			sentenceParts = Util.parseText(sentence.toLowerCase(), ' ');
+			sentenceParts 	= Util.parseText(sentence.toLowerCase(), ' ');
 		}
 		@Override
 		public void  map(LongWritable key, Text line, Context output) throws IOException, InterruptedException{
@@ -44,7 +44,6 @@ public class AddMissingWord  extends Configured implements Tool {
 		}
 	}//MapClass
 
-	
 	public static class CombineClass extends Reducer<Text, Text, Text, Text> {
 		private String[] sentenceParts;
 		  
@@ -144,8 +143,7 @@ public class AddMissingWord  extends Configured implements Tool {
 		Job job = new Job(getConf());
 		job.setJarByClass(AddMissingWord.class);
 		job.setJobName("addMissinWord");
-		
-		
+			
 		job.setOutputKeyClass(Text.class);
 		job.setOutputValueClass(Text.class);
 		
@@ -175,5 +173,4 @@ public class AddMissingWord  extends Configured implements Tool {
 			System.exit(ret);
 		}
 	}
-
 }
