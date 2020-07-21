@@ -92,13 +92,13 @@ public class AddMissingWord  extends Configured implements Tool {
 		
 		@Override
 		public void reduce(Text key,  Iterable<Text> values, Context output) throws IOException, InterruptedException {	
-			double[] sentenceAfterPro 	= new double[sentenceParts.length];
-			double[] sentencePro	 	= new double[sentenceParts.length];
-			String[] missingWord		= new String[sentenceParts.length];
+			double[] sentenceAfterPro 			= new double[sentenceParts.length];
+			double[] sentencePro	 			= new double[sentenceParts.length];
+			String[] missingWord				= new String[sentenceParts.length];
 			for(Text val: values){
-				String[] parts = Util.parseText(val.toString(),'|');
-				double probalitiyAfterFirstWord = Double.parseDouble(parts[2]);
-				double probalitiyBeforeSecondWord = Double.parseDouble(parts[3]);
+				String[] parts  			= Util.parseText(val.toString(),'|');
+				double probalitiyAfterFirstWord 	= Double.parseDouble(parts[2]);
+				double probalitiyBeforeSecondWord 	= Double.parseDouble(parts[3]);
 				int firstWordIndex = Util.contains(sentenceParts, parts[0]) ;
 				
 				if (parts[1].compareTo(sentenceParts[firstWordIndex+1])==0)
