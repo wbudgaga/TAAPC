@@ -51,7 +51,7 @@ public class AddMissingWord  extends Configured implements Tool {
 		protected void setup(Context context) throws IOException,InterruptedException {
 			super.setup(context);
 			String sentence 	= context.getConfiguration().get("SENTENCE");
-			sentenceParts = Util.parseText(sentence.toLowerCase(), ' ');
+			sentenceParts 		= Util.parseText(sentence.toLowerCase(), ' ');
 		}
 		
 		@Override
