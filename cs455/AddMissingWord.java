@@ -29,9 +29,9 @@ public class AddMissingWord  extends Configured implements Tool {
 		}
 		@Override
 		public void  map(LongWritable key, Text line, Context output) throws IOException, InterruptedException{
-			String[] parts = Util.parseText(line.toString(),'\t');
-			String[] words = Util.parseText(parts[0].toString(),'|');
-			int firstWordIndex = Util.contains(sentenceParts, words[0]);
+			String[] parts 		= Util.parseText(line.toString(),'\t');
+			String[] words 		= Util.parseText(parts[0].toString(),'|');
+			int firstWordIndex 	= Util.contains(sentenceParts, words[0]);
 		   	if (firstWordIndex != -1){
 		   		if (firstWordIndex < sentenceParts.length -1 && words[1].compareTo(sentenceParts[firstWordIndex + 1])==0)
 		   			output.write(new Text(words[0]), new Text(Util.join("0"+"|"+words[1], parts[1])));// "0: key and value are parts of sentence
