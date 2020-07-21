@@ -117,16 +117,16 @@ public class AddMissingWord  extends Configured implements Tool {
 				}
 			}//for
 			
-			int    weakestPartIdx = -1;
-			double weakestPart = 2;
+			int    weakestPartIdx 		= -1;
+			double weakestPart 		= 2;
 			for (int i = 0; i < sentenceParts.length-1; ++i){
 				if (weakestPart > sentencePro[i]){
-					weakestPart = sentencePro[i];
-					weakestPartIdx = i;
+					weakestPart 	= sentencePro[i];
+					weakestPartIdx 	= i;
 				}
 				
 			}
-			String theSentence ="";
+			String theSentence 		= "";
 			for (int i=0;i<sentenceParts.length;++i){
 				theSentence += sentenceParts[i] +" ";
 				if (i == weakestPartIdx)
