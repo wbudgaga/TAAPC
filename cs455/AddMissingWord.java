@@ -64,10 +64,10 @@ public class AddMissingWord  extends Configured implements Tool {
 				double probalitiy 	= Double.parseDouble(parts[2]);
 				int firstWordIndex 	= Util.contains(sentenceParts, parts[1]) ;
 				if (parts[1].compareTo(key.toString())==0) continue;
-				if (parts[0].compareTo("0")==0)
+				if (parts[0].compareTo("0") == 0)
 					output.write(new Text("1"),new Text(key.toString() + "|"+parts[1]+"|"+parts[2] +"|"+ "0" ));
 				else
-					if (parts[0].compareTo("1")==0)
+					if (parts[0].compareTo("1") == 0)
 						sentenceAfterPro[firstWordIndex] += probalitiy;
 					else
 						sentenceBeforePro[firstWordIndex] += probalitiy;
