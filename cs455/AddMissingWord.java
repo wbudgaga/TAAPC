@@ -140,7 +140,7 @@ public class AddMissingWord  extends Configured implements Tool {
 	@Override
 	public int run(String[] args) throws Exception {
 		@SuppressWarnings("deprecation")
-		Job job = new Job(getConf());
+		Job job 				= new Job(getConf());
 		job.setJarByClass(AddMissingWord.class);
 		job.setJobName("addMissinWord");
 			
@@ -160,16 +160,16 @@ public class AddMissingWord  extends Configured implements Tool {
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		boolean success = job.waitForCompletion(true);
+		boolean success 			= job.waitForCompletion(true);
 		return success ?0:1;
 	}
 
 	public static void main(String[] args) throws Exception{
 		if(args.length != 2){
-			System.out.println(args.length+ "Usage: " + AddMissingWord.class.getName() + 
+			System.out.println(args.length + "Usage: " + AddMissingWord.class.getName() + 
 					" <job_name> <hdfs_input_file> <hdfs_output_dir>");
 		}else{
-			int ret = ToolRunner.run(new AddMissingWord(), args);
+			int ret 			= ToolRunner.run(new AddMissingWord(), args);
 			System.exit(ret);
 		}
 	}
