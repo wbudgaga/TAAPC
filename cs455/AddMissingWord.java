@@ -128,9 +128,9 @@ public class AddMissingWord  extends Configured implements Tool {
 			}
 			String theSentence 		= "";
 			for (int i=0;i<sentenceParts.length;++i){
-				theSentence += sentenceParts[i] +" ";
+				theSentence 		+= sentenceParts[i] +" ";
 				if (i == weakestPartIdx)
-					theSentence += missingWord[weakestPartIdx] + " ";
+					theSentence 	+= missingWord[weakestPartIdx] + " ";
 			}
 				
 			output.write(new Text("The correct sentence:"), new Text(theSentence));
