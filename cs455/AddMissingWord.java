@@ -24,8 +24,8 @@ public class AddMissingWord  extends Configured implements Tool {
 		@Override
 		protected void setup(Context context) throws IOException,InterruptedException {
 			super.setup(context);
-			String sentence 	= context.getConfiguration().get("SENTENCE");
-			sentenceParts 		= Util.parseText(sentence.toLowerCase(), ' ');
+			String sentence 		= context.getConfiguration().get("SENTENCE");
+			sentenceParts 			= Util.parseText(sentence.toLowerCase(), ' ');
 		}
 		@Override
 		public void  map(LongWritable key, Text line, Context output) throws IOException, InterruptedException{
