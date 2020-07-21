@@ -99,18 +99,18 @@ public class AddMissingWord  extends Configured implements Tool {
 				String[] parts  			= Util.parseText(val.toString(),'|');
 				double probalitiyAfterFirstWord 	= Double.parseDouble(parts[2]);
 				double probalitiyBeforeSecondWord 	= Double.parseDouble(parts[3]);
-				int firstWordIndex = Util.contains(sentenceParts, parts[0]) ;
+				int firstWordIndex 			= Util.contains(sentenceParts, parts[0]) ;
 				
 				if (parts[1].compareTo(sentenceParts[firstWordIndex+1])==0)
-					sentencePro[firstWordIndex] = probalitiyAfterFirstWord + ((firstWordIndex>0)?sentencePro[firstWordIndex-1]:0);
+					sentencePro[firstWordIndex] 	= probalitiyAfterFirstWord + ((firstWordIndex>0)?sentencePro[firstWordIndex-1]:0);
 				else{
-					double averagePro =  Math.min(probalitiyAfterFirstWord,probalitiyBeforeSecondWord);
-					if (missingWord[firstWordIndex]==null){
-						sentenceAfterPro[firstWordIndex] =averagePro;
-						missingWord[firstWordIndex] = parts[1];
+					double averagePro 		=  Math.min(probalitiyAfterFirstWord,probalitiyBeforeSecondWord);
+					if (missingWord[firstWordIndex] == null){
+						sentenceAfterPro[firstWordIndex] 	= averagePro;
+						missingWord[firstWordIndex] 		= parts[1];
 					}else{
-						if (sentenceAfterPro[firstWordIndex]< averagePro){
-							missingWord[firstWordIndex] = parts[1];
+						if (sentenceAfterPro[firstWordIndex] < averagePro){
+							missingWord[firstWordIndex] 	= parts[1];
 							sentenceAfterPro[firstWordIndex]= averagePro;
 						}
 					}
