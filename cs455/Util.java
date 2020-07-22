@@ -27,7 +27,7 @@ public class Util {
 	protected static String readSentence(){
 		try {
 			return bufferedReader.readLine();
-		} catch (IOException e) {System.out.println("IO problem: "+e.getMessage());}
+		} catch (IOException e) { System.out.println("IO problem: " + e.getMessage()); }
 		return  null;
 	}
 
