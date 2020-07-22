@@ -45,8 +45,8 @@ public class Util {
 	}
 	
 	protected static int contains(String[] stringList,String stringElement){
-		for(int i=0 ; i< stringList.length; ++i)
-			if (stringList[i].compareToIgnoreCase(stringElement)==0)
+		for(int i = 0 ; i < stringList.length; ++i)
+			if (stringList[i].compareToIgnoreCase(stringElement) == 0)
 				return i;
 		return -1;
 	}
