@@ -130,7 +130,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 				return ;
 			}
 			for(Text val: values){
-				output.write(new Text(key.toString()), new DoubleWritable(Double.parseDouble(val.toString())/total));
+				output.write(new Text(key.toString()), new DoubleWritable(Double.parseDouble(val.toString()) / total));
 			}					
 		}
 	}//ReduceClass
