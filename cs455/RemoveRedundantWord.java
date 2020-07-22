@@ -30,15 +30,15 @@ public class RemoveRedundantWord  extends Configured implements Tool {
 
 		@Override
 		public void  map(LongWritable key, Text line, Context output) throws IOException, InterruptedException{
-			String[] parts = Util.parseText(line.toString(),'\t');
-			String[] words = Util.parseText(parts[0].toString(),'|');
+			String[] parts 			= Util.parseText(line.toString(),'\t');
+			String[] words 			= Util.parseText(parts[0].toString(),'|');
 
-			int firstWordIndex = Util.contains(sentenceParts,words[0]);
+			int firstWordIndex 		= Util.contains(sentenceParts,words[0]);
 		   	if (firstWordIndex == -1 || firstWordIndex >= sentenceParts.length -1)
 				return;
-		   	if(sentenceParts[firstWordIndex+1].compareToIgnoreCase(words[1])==0 || 
-		   			(firstWordIndex < sentenceParts.length -2 && sentenceParts[firstWordIndex + 2].compareToIgnoreCase(words[1])==0))
-		   		output.write(new Text("0"), new Text(Util.join(words[0]+"|"+words[1], parts[1])));
+		   	if(sentenceParts[firstWordIndex+1].compareToIgnoreCase(words[1]) == 0 || 
+		   			(firstWordIndex < sentenceParts.length -2 && sentenceParts[firstWordIndex + 2].compareToIgnoreCase(words[1]) == 0))
+		   		output.write(new Text("0"), new Text(Util.join(words[0] + "|" + words[1], parts[1])));
 		}
 	}//MapClass
 
