@@ -40,8 +40,8 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 			set(first, second);
 		}
 		public void set(Text first, Text second) {
-			this.first = first;
-			this.second = second;
+			this.first 			= first;
+			this.second 			= second;
 		}
 		public Text getFirst() {
 			return first;
@@ -66,7 +66,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 		@Override
 		public boolean equals(Object o) {
 			if (o instanceof TextPair) {
-				TextPair tp = (TextPair) o;
+				TextPair tp 		= (TextPair) o;
 				return first.equals(tp.first) && second.equals(tp.second);
 			}
 			return false;
@@ -77,7 +77,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 		}
 		@Override
 		public int compareTo(TextPair tp) {
-			int cmp = first.compareTo(tp.first);
+			int cmp 			= first.compareTo(tp.first);
 			if (cmp != 0) {
 				return cmp;
 			}
@@ -93,10 +93,10 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 		@Override
 		public int compare(byte[] b1, int s1, int l1, byte[] b2, int s2, int l2) {
 			try {
-				int firstL1 = WritableUtils.decodeVIntSize(b1[s1]) + readVInt(b1, s1);
-				int firstL2 = WritableUtils.decodeVIntSize(b2[s2]) + readVInt(b2, s2);
+				int firstL1 		= WritableUtils.decodeVIntSize(b1[s1]) + readVInt(b1, s1);
+				int firstL2 		= WritableUtils.decodeVIntSize(b2[s2]) + readVInt(b2, s2);
 				
-				int cmp = TEXT_COMPARATOR.compare(b1, s1, firstL1, b2, s2, firstL2);
+				int cmp 		= TEXT_COMPARATOR.compare(b1, s1, firstL1, b2, s2, firstL2);
 				if (cmp != 0) {
 					return cmp;
 				}
@@ -113,9 +113,9 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 	public static class MapClass extends Mapper<LongWritable, Text, TextPair, Text>{
 		@Override
 		public void  map(LongWritable key, Text line, Context output) throws IOException, InterruptedException{
-			String[] parts = Util.parseText(line.toString(),'\t');
-			String[] words = Util.parseText(parts[0].toString(),'|');
-			TextPair textPair = new TextPair(words[0],words[1]);
+			String[] parts 			= Util.parseText(line.toString(),'\t');
+			String[] words 			= Util.parseText(parts[0].toString(),'|');
+			TextPair textPair 		= new TextPair(words[0],words[1]);
 			output.write(textPair, new Text(parts[1]));
 		}	
 	}//MapClass
