@@ -46,21 +46,21 @@ public class RemoveRedundantWord  extends Configured implements Tool {
 	public static class ReducerClass extends Reducer<Text, Text, Text, Text> {
 		private String[] sentenceParts;
 		private double[] sentencePartsPro;
-		private double[]   sentencePartsSkipOnePro;
+		private double[] sentencePartsSkipOnePro;
 		  
 		@Override
 		protected void setup(Context context) throws IOException,InterruptedException {
 			super.setup(context);
-			String sentence = context.getConfiguration().get("SENTENCE");
-			sentenceParts = Util.parseText(sentence.toLowerCase(), ' ');
-			sentencePartsPro 	= new double[sentenceParts.length];
-			sentencePartsSkipOnePro = new double[sentenceParts.length];
+			String sentence 		= context.getConfiguration().get("SENTENCE");
+			sentenceParts 			= Util.parseText(sentence.toLowerCase(), ' ');
+			sentencePartsPro 		= new double[sentenceParts.length];
+			sentencePartsSkipOnePro 	= new double[sentenceParts.length];
 		}
 						
 	    public void reduce(Text key,  Iterable<Text> values, Context output) throws IOException, InterruptedException {
 		   	
 			for(Text val: values){
-				String[] parts = Util.parseText(val.toString(),'|');
+				String[] parts 	= Util.parseText(val.toString(),'|');
 				int firstWordIndex = Util.contains(sentenceParts,parts[0]);
 				double probalitiy = Double.parseDouble(parts[2]);
 				if (sentenceParts[firstWordIndex+1].compareTo(parts[1])==0)
