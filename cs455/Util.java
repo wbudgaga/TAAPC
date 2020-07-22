@@ -9,9 +9,9 @@ public class Util {
 	private static BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));	
 	
 	protected static String normStr(String str) {
-		StringBuffer buff = new StringBuffer(str);
-		for(int i=0; i<buff.length(); i++){
-			char c = buff.charAt(i);
+		StringBuffer buff 	= new StringBuffer(str);
+		for(int i=0; i < buff.length(); i++){
+			char c 		= buff.charAt(i);
 			if(!Character.isLetter(c) || Character.isDigit(c)){
 				buff.deleteCharAt(i);
 				i--;
