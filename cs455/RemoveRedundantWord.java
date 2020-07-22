@@ -60,33 +60,33 @@ public class RemoveRedundantWord  extends Configured implements Tool {
 	    public void reduce(Text key,  Iterable<Text> values, Context output) throws IOException, InterruptedException {
 		   	
 			for(Text val: values){
-				String[] parts 	= Util.parseText(val.toString(),'|');
-				int firstWordIndex = Util.contains(sentenceParts,parts[0]);
-				double probalitiy = Double.parseDouble(parts[2]);
+				String[] parts 		= Util.parseText(val.toString(),'|');
+				int firstWordIndex 	= Util.contains(sentenceParts,parts[0]);
+				double probalitiy 	= Double.parseDouble(parts[2]);
 				if (sentenceParts[firstWordIndex+1].compareTo(parts[1])==0)
-					sentencePartsPro[firstWordIndex] = probalitiy;
+					sentencePartsPro[firstWordIndex] 		= probalitiy;
 				else 
-					sentencePartsSkipOnePro[firstWordIndex+1]= probalitiy;
+					sentencePartsSkipOnePro[firstWordIndex+1]	= probalitiy;
 			}
 
 		/*	sentencePartsSkipOnePro[0] = 0.0001;
 			sentencePartsSkipOnePro[sentencePartsSkipOnePro.length - 1] = 0.0001; 
-*/			double max  = 2.0;
-			int    minIndex = -1;
-			for (int i=0;i<sentenceParts.length-1;++i){
+*/			double max  			= 2.0;
+			int    minIndex 		= -1;
+			for (int i = 0 ; i < sentenceParts.length-1; ++i){
 			//	output.write(new Text(i+""), new Text(sentencePartsPro[i]+"|"+sentencePartsSkipOnePro[i]));
-				double partPro = Math.min(sentencePartsPro[i] , ((i>0)?sentencePartsPro[i-1]:1));
+				double partPro 		= Math.min(sentencePartsPro[i] , (( i > 0 ) ? sentencePartsPro[i-1]:1));
 //				partPro = sentencePartsSkipOnePro[i] + partPro;
 				if (partPro < max){
-					max = partPro;
-					minIndex = i;
+					max 		= partPro;
+					minIndex 	= i;
 				}
 			}
-			String theSentence ="";
+			String theSentence 		= "";
 			for (int i=0;i<sentenceParts.length;++i){
 				if (i == minIndex)
 					continue;
-				theSentence += sentenceParts[i] +" ";
+				theSentence 		+= sentenceParts[i] +" ";
 			}
 			output.write(new Text("The correct sentence:"), new Text(theSentence));
 	    }//reduce method
