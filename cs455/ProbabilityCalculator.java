@@ -121,12 +121,12 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 	}//MapClass
 
 	public static class ReduceClass extends Reducer<TextPair, Text, Text, DoubleWritable> {
-		private double total=-1;
+		private double total			= -1;
 		@Override
 		public void reduce(TextPair key,  Iterable<Text> values, Context output) throws IOException, InterruptedException {
-			if (key.getSecond().toString().compareTo("0")==0){
+			if (key.getSecond().toString().compareTo("0") == 0){
 				for(Text val: values)
-					total = Double.parseDouble(val.toString());
+					total 		= Double.parseDouble(val.toString());
 				return ;
 			}
 			for(Text val: values){
@@ -139,7 +139,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 	@Override
 	public int run(String[] args) throws Exception {
 		@SuppressWarnings("deprecation")
-		Job job = new Job(getConf());
+		Job job 				= new Job(getConf());
 		job.setJarByClass(ProbabilityCalculator.class);
 		job.setJobName("ProbabilityCalculator");
 		job.setSortComparatorClass(TextPairComparator.class);
@@ -157,7 +157,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 		FileInputFormat.setInputPaths(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		
-		boolean success = job.waitForCompletion(true);
+		boolean success 			= job.waitForCompletion(true);
 		return success ?0:1;
 	}
 
@@ -166,7 +166,7 @@ public class ProbabilityCalculator  extends Configured implements Tool {
 			System.out.println(args.length+ "Usage: " + ProbabilityCalculator.class.getName() + 
 					" <job_name> <hdfs_input_file> <hdfs_output_dir>");
 		}else{
-			int ret = ToolRunner.run(new ProbabilityCalculator(), args);
+			int ret 			= ToolRunner.run(new ProbabilityCalculator(), args);
 			System.exit(ret);
 		}
 	}
