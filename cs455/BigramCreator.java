@@ -19,8 +19,8 @@ import org.apache.hadoop.util.ToolRunner;
 public class BigramCreator extends Configured implements Tool {
 	
 	public static class MapClass extends Mapper<LongWritable, Text, Text, IntWritable>{
-		private final static IntWritable one = new IntWritable(1);
-	    	private Text 					word = new Text();
+		private final static IntWritable one 		= new IntWritable(1);
+	    	private Text word 				= new Text();
 	    	 
 		public void map(LongWritable key, Text value, Context output) throws IOException, InterruptedException {
 			String word1 = null,word2;
