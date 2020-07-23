@@ -31,13 +31,13 @@ public class BigramCreator extends Configured implements Tool {
 	      
 	    		while (itr.hasMoreTokens()) {
 	    			word2 				= Util.normStr(itr.nextToken());
-	    		if (!word1.isEmpty() && !word2.isEmpty()){
-	    			word.set(Util.join(word1, word2));
-	    			output.write(word, one);
-	    			word.set(Util.join(word1, "0"));
-	    			output.write(word, one);
+	    			if (!word1.isEmpty() && !word2.isEmpty()){
+	    				word.set(Util.join(word1, word2));
+	    				output.write(word, one);
+	    				word.set(Util.join(word1, "0"));
+	    				output.write(word, one);
 
-	    		}//if
+	    			}//if
 	    		word1 = word2;
 	    	}//while
 		}// map method
