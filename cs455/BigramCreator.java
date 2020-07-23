@@ -38,8 +38,8 @@ public class BigramCreator extends Configured implements Tool {
 	    				output.write(word, one);
 
 	    			}//if
-	    		word1 = word2;
-	    	}//while
+	    			word1 				= word2;
+	    		}//while
 		}// map method
 	}// MapClass
 	  
