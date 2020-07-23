@@ -46,9 +46,9 @@ public class BigramCreator extends Configured implements Tool {
 	public static class ReduceClass extends Reducer<Text, IntWritable, Text, IntWritable> {
 	 
 		public void reduce(Text key,  Iterable<IntWritable> values, Context output) throws IOException, InterruptedException {
-			int sum = 0;
+			int sum 				= 0;
 			for(IntWritable val: values){
-				sum += val.get();
+				sum 				+= val.get();
 			}
 			output.write(key, new IntWritable(sum));	
 		}//reduce method
