@@ -98,5 +98,5 @@ public class BigramCreator extends Configured implements Tool {
 			System.exit(printUsage());
 		else
 			System.exit(ToolRunner.run(new BigramCreator(), args));
-	  }
+	}
 }
