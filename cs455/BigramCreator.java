@@ -23,7 +23,7 @@ public class BigramCreator extends Configured implements Tool {
 	    	private Text word 				= new Text();
 	    	 
 		public void map(LongWritable key, Text value, Context output) throws IOException, InterruptedException {
-			String word1 = null,word2;
+			String word1 				= null,word2;
 	    	String line = value.toString();
 	    	StringTokenizer itr = new StringTokenizer(line);
 	    	if(itr.hasMoreTokens())
