@@ -29,8 +29,8 @@ public class BigramCreator extends Configured implements Tool {
 	    		if(itr.hasMoreTokens())
 	    			word1 				= Util.normStr(itr.nextToken());
 	      
-	    	while (itr.hasMoreTokens()) {
-	    		word2 = Util.normStr(itr.nextToken());
+	    		while (itr.hasMoreTokens()) {
+	    			word2 				= Util.normStr(itr.nextToken());
 	    		if (!word1.isEmpty() && !word2.isEmpty()){
 	    			word.set(Util.join(word1, word2));
 	    			output.write(word, one);
