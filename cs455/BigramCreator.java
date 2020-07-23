@@ -79,7 +79,7 @@ public class BigramCreator extends Configured implements Tool {
 				if (args.length != 4)
 					return printUsage();
 	    			job.setNumReduceTasks(Integer.parseInt(args[1]));
-	    		inputLocation = 2;
+	    			inputLocation = 2;
 			}
 		}catch (NumberFormatException except) {
 	    	System.out.println("ERROR: Integer expected instead of " + args[1]);
