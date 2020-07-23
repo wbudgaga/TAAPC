@@ -26,8 +26,8 @@ public class BigramCreator extends Configured implements Tool {
 			String word1 				= null,word2;
 	    		String line 				= value.toString();
 	    		StringTokenizer itr 			= new StringTokenizer(line);
-	    	if(itr.hasMoreTokens())
-	    		word1 = Util.normStr(itr.nextToken());
+	    		if(itr.hasMoreTokens())
+	    			word1 				= Util.normStr(itr.nextToken());
 	      
 	    	while (itr.hasMoreTokens()) {
 	    		word2 = Util.normStr(itr.nextToken());
