@@ -78,7 +78,7 @@ public class BigramCreator extends Configured implements Tool {
 			if ("-r".equals(args[0])){
 				if (args.length != 4)
 					return printUsage();
-	    		job.setNumReduceTasks(Integer.parseInt(args[1]));
+	    			job.setNumReduceTasks(Integer.parseInt(args[1]));
 	    		inputLocation = 2;
 			}
 		}catch (NumberFormatException except) {
