@@ -73,7 +73,7 @@ public class BigramCreator extends Configured implements Tool {
 		job.setMapperClass(MapClass.class);        
 		job.setCombinerClass(ReduceClass.class);
 		job.setReducerClass(ReduceClass.class);
-		int inputLocation = 0;
+		int inputLocation 				= 0;
 		try {
 			if ("-r".equals(args[0])){
 				if (args.length != 4)
