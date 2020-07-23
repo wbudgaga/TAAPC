@@ -62,7 +62,7 @@ public class BigramCreator extends Configured implements Tool {
 	 
 	public int run(String[] args) throws Exception {	
 		@SuppressWarnings("deprecation")
-		Job job = new Job(getConf());
+		Job job 					= new Job(getConf());
 		job.setJarByClass(BigramCreator.class);
 		job.setJobName("bigramCreator");
 	 
