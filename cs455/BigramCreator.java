@@ -24,7 +24,7 @@ public class BigramCreator extends Configured implements Tool {
 	    	 
 		public void map(LongWritable key, Text value, Context output) throws IOException, InterruptedException {
 			String word1 				= null,word2;
-	    	String line = value.toString();
+	    		String line 				= value.toString();
 	    	StringTokenizer itr = new StringTokenizer(line);
 	    	if(itr.hasMoreTokens())
 	    		word1 = Util.normStr(itr.nextToken());
