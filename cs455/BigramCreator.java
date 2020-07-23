@@ -83,7 +83,7 @@ public class BigramCreator extends Configured implements Tool {
 			}
 		}catch (NumberFormatException except) {
 	    		System.out.println("ERROR: Integer expected instead of " + args[1]);
-	    	return printUsage();
+	    		return printUsage();
 	    }
 		FileInputFormat.setInputPaths(job, new Path(args[inputLocation]));
 		FileOutputFormat.setOutputPath(job, new Path(args[inputLocation+1]));
